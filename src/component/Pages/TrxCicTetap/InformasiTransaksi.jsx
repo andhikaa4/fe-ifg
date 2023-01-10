@@ -2,6 +2,9 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 
 export function InformasiTransaksi() {
+    const current = new Date()
+    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`
+    
     return (
         <div className="overflow-x-auto rounded shadow bg-white mb-4">
             <form className="mb-4">
@@ -23,6 +26,7 @@ export function InformasiTransaksi() {
                                             <h2 className="text-left text-sm py-1 w-1/2">Tanggal Transaksi</h2>
                                             <input
                                                 className="mx-4 input input-bordered w-full h-8 rounded border-black bg-gray-300"
+                                                value={date}
                                                 readOnly
                                             // value={namaProduk}
                                             />

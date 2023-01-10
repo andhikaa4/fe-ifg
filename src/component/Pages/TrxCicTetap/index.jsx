@@ -5,9 +5,10 @@ import { TrxCicTetapTrxBaru } from "./TrxCicTetapTrxBaru"
 export function TransaksiCicilanTetap() {
     const [kodeProduk, setKodeProduk] = useState("")
     const [namaProduk, setNamaProduk] = useState("")
-    const [tanggalTransaksi, setTanggalTransaksi] = useState("")
+    const [tanggalTransaksiAwal, setTanggalTransaksiAwal] = useState("")
+    const [tanggalTransaksiAkhir, setTanggalTransaksiAkhir] = useState("")
     const [nomorTransaksi, setNomorTransaksi] = useState("")
-    const [statusTransaksi, setStatusTransaksi] = useState("")
+    const [statusTransaksi, setStatusTransaksi] = useState("ALL")
     const [nomorKTP, setNomorKTP] = useState("")
     const [idPelanggan, setIdPelanggan] = useState("")
     const [namaPelanggan, setNamaPelanggan] = useState("")
@@ -17,7 +18,8 @@ export function TransaksiCicilanTetap() {
     const onDelete = () => {
         setKodeProduk("")
         setNamaProduk("")
-        setTanggalTransaksi("")
+        setTanggalTransaksiAwal("")
+        setTanggalTransaksiAkhir("")
         setNomorTransaksi("")
         setStatusTransaksi("")
         setNomorKTP("")
@@ -54,16 +56,20 @@ export function TransaksiCicilanTetap() {
                                     <h2 className="text-left text-sm py-1 w-4/5">Tanggal Transaksi</h2>
                                     <input
                                         className="mr-24 ml-3 input input-bordered w-2/3 h-8 rounded border-black"
-                                        value={tanggalTransaksi}
-                                        onChange={(e) => setTanggalTransaksi(e.target.value)}
+                                        type="text"
+                                        value={tanggalTransaksiAwal}
+                                        onChange={(e) => setTanggalTransaksiAwal(e.target.value)}
+                                        onFocus={(e) => (e.target.type = "date")}
                                     />
                                 </div>
                                 <div className="mb-7 flex flex-row form-control w-full">
                                     <h2 className="text-right text-sm py-1 w-4/5">s/d</h2>
                                     <input
                                         className="mr-24 ml-3 input input-bordered w-2/3 h-8 rounded border-black"
-                                        value={tanggalTransaksi}
-                                        onChange={(e) => setTanggalTransaksi(e.target.value)}
+                                        type="text"
+                                        value={tanggalTransaksiAkhir}
+                                        onChange={(e) => setTanggalTransaksiAkhir(e.target.value)}
+                                        onFocus={(e) => (e.target.type = "date")}
                                     />
                                 </div>
                                 <div className="mb-7 flex flex-row form-control w-full">
@@ -78,7 +84,7 @@ export function TransaksiCicilanTetap() {
                             <div>
                                 <div className="mb-7 flex flex-row form-control w-full">
                                     <h2 className="text-left text-sm py-1 w-1/2">Status Transaksi</h2>
-                                    <select className="h-8 input py-0 w-full rounded border-black">
+                                    <select className="h-8 input py-0 w-full rounded border-black" onChange={(e) => setStatusTransaksi(e.target.value)} value={statusTransaksi}>
                                         <option value="ALL"></option>
                                         <option value="AKTIF">AKTIF</option>
                                         <option value="JATUH TEMPO CICILAN">JATUH TEMPO CICILAN</option>

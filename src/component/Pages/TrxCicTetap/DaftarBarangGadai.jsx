@@ -51,7 +51,7 @@ export function DaftarBarangGadai() {
                                                 <th className="text-center py-1 text-sm border border-black">Jumlah Barang</th>
                                                 <th className="text-center py-1 text-sm border border-black">Harga Per Satuan</th>
                                                 <th className="text-center py-1 text-sm border border-black">Total</th>
-                                                <th className="text-center py-1 text-sm border border-black">Detail</th>
+                                                <th className="text-center py-1 text-sm border border-black w-9"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -62,7 +62,7 @@ export function DaftarBarangGadai() {
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
-                                                <td className="text-center text-sm py-1 border border-black">cek</td>
+                                                <td className="text-center font-semibold border border-black text-xl"><button>-</button></td>
                                             </tr>
                                             <tr>
                                                 <td className="text-center text-sm py-1 border border-black">2</td>
@@ -71,7 +71,7 @@ export function DaftarBarangGadai() {
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
-                                                <td className="text-center text-sm py-1 border border-black">cek</td>
+                                                <td className="text-center font-semibold border border-black text-xl"><button>-</button></td>
                                             </tr>
                                             <tr>
                                                 <td className="text-center text-sm py-1 border border-black">3</td>
@@ -80,7 +80,7 @@ export function DaftarBarangGadai() {
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
-                                                <td className="text-center text-sm py-1 border border-black">cek</td>
+                                                <td className="text-center font-semibold border border-black text-xl"><button>-</button></td>
                                             </tr>
                                             <tr>
                                                 <td className="text-center text-sm py-1 border border-black">4</td>
@@ -89,7 +89,7 @@ export function DaftarBarangGadai() {
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
-                                                <td className="text-center text-sm py-1 border border-black">cek</td>
+                                                <td className="text-center font-semibold border border-black text-xl"><button>-</button></td>
                                             </tr>
                                             <tr>
                                                 <td className="text-center text-sm py-1 border border-black">5</td>
@@ -98,7 +98,7 @@ export function DaftarBarangGadai() {
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
                                                 <td className="text-center text-sm py-1 border border-black">cek</td>
-                                                <td className="text-center text-sm py-1 border border-black">cek</td>
+                                                <td className="text-center font-semibold border border-black text-xl"><button>-</button></td>
                                             </tr>
                                         </tbody>
                                     </table>

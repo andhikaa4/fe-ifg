@@ -1,16 +1,94 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 export function PengaturanUserDetail(props) {
     const { onClick = null } = props
     const [openForm, setOpenForm] = useState(false)
 
+    const initialValues = {
+        namaUser: '',
+        nomorHp: '',
+        keterangan: '',
+        maksimalLimitTransaksi: '',
+        tanggalMasuk: '',
+    }
+
+    const [formValues, setFormValues] = useState(initialValues)
+    const [formErrors, setFormErrors] = useState({})
+    const [isSubmit, setIsSubmit] = useState(false)
+
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormValues({ ...formValues, [name]: value })
+    }
+
+    useEffect(() => {
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+            console.log(formValues)
+        }
+    }, [formErrors])
+
+    const current = new Date()
+    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`
+
+    const validate = (values) => {
+        console.log(values.nomorHp)
+        let errors = {}
+
+        if (!values.namaUser) {
+            errors.namaUser = 'User name is required'
+        } else if (values.namaUser.length > 30) {
+            errors.namaUser = 'User name cannot exceed more than 30 characters'
+        }
+
+        if (!values.nomorHp) {
+            errors.nomorHp = 'Phone number is required'
+        } else if (values.nomorHp > 12) {
+            errors.nomorHp = 'Phone number cannot exceed more than 12 digits'
+        } else if (values.nomorHp < 12) {
+            errors.nomorHp = 'Minimum character must be 9 digits'
+        }
+        // else if (typeof (values.nomorHp) !== Number) {
+        //     errors.nomorHp = 'Nomor HP must be number'
+        // }
+
+        if (!values.maksimalLimitTransaksi) {
+            errors.maksimalLimitTransaksi = 'Limit transaction is required'
+        } else if (values.maksimalLimitTransaksi < 500000) {
+            errors.maksimalLimitTransaksi = 'minimum limit must be 500.000'
+        } else if (values.maksimalLimitTransaksi > 1000000000) {
+            errors.maksimalLimitTransaksi = 'maximum limit must be 1.000.000.000'
+        }
+
+        if (!values.tanggalMasuk) {
+            errors.tanggalMasuk = 'Date is required'
+        } else if (values.tanggalMasuk > date) {
+            errors.tanggalMasuk = `maximum date is today`
+        }
+
+        return errors
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setFormErrors(validate(formValues))
+        setIsSubmit(true)
+    }
+
     return (
         <div className="fixed top-0 left-0 right-0 bg-gray-600 bg-opacity-80 overflow-y-auto h-full w-full">
             <div className="mt-5 md:col-span-2 md:mt-7 max-w-2xl mx-auto rounded">
-                <form className="mb-4">
+                <form className="mb-4" onSubmit={handleSubmit}>
                     <div className="shadow sm:overflow-hidden sm:rounded-md bg-white px-4">
                         <h1 className="text-3xl p-4 font-bold">Pengaturan User - Detail</h1>
                         <div className="space-y-2 px-2">
+                            {Object.keys(formErrors).length !== 0 ? (
+                                <ul className="px-4 py-2 mb-2 text-sm text-red-600 bg-gray-200 rounded">
+                                    <li>{formErrors.namaUser ? `- ${(formErrors.namaUser)}` : null}</li>
+                                    <li>{formErrors.nomorHp ? `- ${(formErrors.nomorHp)}` : null}</li>
+                                    <li>{formErrors.maksimalLimitTransaksi ? `- ${(formErrors.maksimalLimitTransaksi)}` : null}</li>
+                                    <li>{formErrors.tanggalMasuk ? `- ${(formErrors.tanggalMasuk)}` : null}</li>
+                                </ul>
+                            ) : null}
                             <div className="grid">
                                 <div className="col-span-2 m-5">
                                     <div className="mb-5 flex flex-row form-control w-full">
@@ -30,6 +108,9 @@ export function PengaturanUserDetail(props) {
                                         ) : (
                                             <input
                                                 className="mx-2 text input input-bordered w-full h-8 rounded border-black"
+                                                name="namaUser"
+                                                value={formValues.namaUser}
+                                                onChange={handleChange}
                                             />
                                         )}
                                     </div>
@@ -43,6 +124,9 @@ export function PengaturanUserDetail(props) {
                                         ) : (
                                             <input
                                                 className="mx-2 text input input-bordered w-full h-8 rounded border-black"
+                                                name="nomorHp"
+                                                value={formValues.nomorHp}
+                                                onChange={handleChange}
                                             />
                                         )}
                                     </div>
@@ -56,6 +140,9 @@ export function PengaturanUserDetail(props) {
                                         ) : (
                                             <input
                                                 className="mx-2 text input input-bordered w-full h-8 rounded border-black"
+                                                name="keterangan"
+                                                value={formValues.keterangan}
+                                                onChange={handleChange}
                                             />
                                         )}
                                     </div>
@@ -69,6 +156,9 @@ export function PengaturanUserDetail(props) {
                                         ) : (
                                             <input
                                                 className="mx-2 text input input-bordered w-full h-8 rounded border-black"
+                                                name="maksimalLimitTransaksi"
+                                                value={formValues.maksimalLimitTransaksi}
+                                                onChange={handleChange}
                                             />
                                         )}
                                     </div>
@@ -82,6 +172,11 @@ export function PengaturanUserDetail(props) {
                                         ) : (
                                             <input
                                                 className="mx-2 text input input-bordered w-full h-8 rounded border-black"
+                                                type="text"
+                                                name="tanggalMasuk"
+                                                value={formValues.tanggalMasuk}
+                                                onChange={handleChange}
+                                                onFocus={(e) => (e.target.type = "date")}
                                             />
                                         )}
                                     </div>

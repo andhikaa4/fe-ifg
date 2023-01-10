@@ -48,6 +48,10 @@ export function PengaturanUserBaru(props) {
 
         if (!values.nomorHp) {
             errors.nomorHp = 'Phone number is required'
+        } else if (values.nomorHp > 12) {
+            errors.nomorHp = 'Phone number cannot exceed more than 12 digits'
+        } else if (values.nomorHp < 12) {
+            errors.nomorHp = 'Minimum character must be 9 digits'
         }
         // else if (typeof (values.nomorHp) !== Number) {
         //     errors.nomorHp = 'Nomor HP must be number'

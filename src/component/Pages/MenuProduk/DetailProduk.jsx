@@ -1,4 +1,5 @@
 import React from "react";
+import EditProduk from "./EditProduk";
 
 const DetailProduk = () => {
   return (
@@ -9,14 +10,14 @@ const DetailProduk = () => {
           <h3 className="font-bold text-lg">Pengaturan Produk - Details</h3>
           <div className="flex mt-10">
             <label className="label w-40">
-              <span className="label-text text-slate-900">Status</span>
+              <span className="label-text text-slate-900">Tipe Produk</span>
             </label>
             <select className="select select-bordered bg-transparent select-sm w-full max-w-xs rounded-md">
               <option disabled selected>
-                Pilih Status
+                Pilih tipe produk
               </option>
-              <option>Aktif</option>
-              <option>Non Aktif</option>
+              <option>Konsinyasi Cicilan Tetap</option>
+              <option>Konsinyasi Cicilan Fleksibel</option>
             </select>
           </div>
           <div className="flex mt-4">
@@ -149,14 +150,49 @@ const DetailProduk = () => {
               <span className="label-text text-slate-900">hari/bulan</span>
             </label>
           </div>
+          <div className="flex mt-4">
+            <label className="label w-40">
+              <span className="label-text text-slate-900">
+                Tanggal Buat / Oleh
+              </span>
+            </label>
+            <input
+              type="text"
+              className="input input-bordered input-sm w-full max-w-xs rounded-md border-2 bg-transparent"
+            />
+          </div>
+          <div className="flex mt-4">
+            <label className="label w-40">
+              <span className="label-text text-slate-900">
+                Tanggal Update Terakhir / Oleh
+              </span>
+            </label>
+            <input
+              type="text"
+              className="input input-bordered input-sm w-full max-w-xs rounded-md border-2 bg-transparent"
+            />
+          </div>
           <div className="modal-action">
-            <label htmlFor="prod-detail" className="btn btn-md rounded-md">
+            <label
+              htmlFor="prod-detail"
+              className="rounded border border-transparent bg-gray-300 py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:ring-offset-1"
+            >
               Kembali
             </label>
-            <label htmlFor="prod-detail" className="btn btn-md rounded-md">
-              Simpan
+            <label
+              htmlFor="prod-detail"
+              className="rounded border border-transparent bg-gray-300 py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:ring-offset-1"
+            >
+              Hapus
+            </label>
+            <label
+              htmlFor="prod-ubah"
+              className="rounded border border-transparent bg-gray-300 py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:ring-offset-1"
+            >
+              Ubah
             </label>
           </div>
+          <EditProduk />
         </div>
       </div>
     </div>

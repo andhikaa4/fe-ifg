@@ -1,0 +1,43 @@
+const dataProduk = [
+  {
+    produkId: 1,
+    tipeProduk: "Konsiyasi Cicilan Tetap",
+    namaProduk: "laptop",
+    keterangan: "Bagus",
+    ltv: 50,
+    jangkaWaktu: 2,
+    biayaAdmBuka: 50,
+    biayaAdmTutup: 20,
+    biayaJasa: 20,
+    biayaDenda: 10,
+    status: 1,
+  },
+  {
+    produkId: 2,
+    tipeProduk: "Konsiyasi Cicilan Fleksibel",
+    namaProduk: "Komputer",
+    keterangan: "Bagus",
+    ltv: 50,
+    jangkaWaktu: 2,
+    biayaAdmBuka: 10,
+    biayaAdmTutup: 10,
+    biayaJasa: 10,
+    biayaDenda: 10,
+    status: 1,
+  },
+  {
+    produkId: 3,
+    tipeProduk: "Konsiyasi Cicilan Fleksibel",
+    namaProduk: "Motor",
+    keterangan: "Bagus",
+    ltv: 50,
+    jangkaWaktu: 2,
+    biayaAdmBuka: 20,
+    biayaAdmTutup: 20,
+    biayaJasa: 20,
+    biayaDenda: 20,
+    status: 1,
+  },
+];
+
+export { dataProduk };

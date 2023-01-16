@@ -1,10 +1,12 @@
 import React from "react";
+import { dataProduk } from "../../StatikData/DataProduk";
 
 const DataProduk = () => {
+  console.log("produk", dataProduk);
   return (
     <div>
       <div className="overflow-x-auto mb-10">
-        <table className="table table-compact w-full border">
+        <table className="table table-compact w-full">
           <thead>
             <tr>
               <th>Tipe Produk</th>
@@ -16,56 +18,32 @@ const DataProduk = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Littel, Schaden and Vandervort</td>
-              <td>Canada</td>
-              <td>12/16/2020</td>
-              <td className="flex gap-2">
-                <label
-                  htmlFor="prod-detail"
-                  className="btn btn-outline btn-xs rounded"
-                >
-                  Detail
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Zemlak, Daniel and Leannon</td>
-              <td>United States</td>
-              <td>12/5/2020</td>
-              <td className="flex gap-2">
-                <label
-                  htmlFor="prod-detail"
-                  className="btn btn-outline btn-xs rounded"
-                >
-                  Detail
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Carroll Group</td>
-              <td>China</td>
-              <td>8/15/2020</td>
-              <td className="flex gap-2">
-                <label
-                  htmlFor="prod-detail"
-                  className="btn btn-outline btn-xs rounded"
-                >
-                  Detail
-                </label>
-              </td>
-            </tr>
-          </tbody>
+          {dataProduk.length > 0 ? (
+            dataProduk.map((prod, index) => (
+              <tbody>
+                <tr key={index} className="hover">
+                  <th>{prod.tipeProduk}</th>
+                  <td>{prod.produkId}</td>
+                  <td>{prod.namaProduk}</td>
+                  <td>{prod.ltv}</td>
+                  <td>{prod.biayaJasa}</td>
+                  <td>{prod.status === 1 ? "Aktif" : "Non Aktif"}</td>
+                  <td className="flex gap-2">
+                    <label
+                      htmlFor="prod-detail"
+                      className="btn btn-outline btn-xs rounded"
+                    >
+                      Detail
+                    </label>
+                  </td>
+                </tr>
+              </tbody>
+            ))
+          ) : (
+            <p className="m-5 text-center text-red-700">
+              Data Produk Tidak Ada
+            </p>
+          )}
         </table>
       </div>
       <div className="flex flex-row-reverse items-center px-4 pb-4">

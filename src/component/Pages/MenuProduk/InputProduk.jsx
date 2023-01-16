@@ -20,8 +20,8 @@ const InputProduk = () => {
                 <option disabled selected>
                   Pilih tipe produk
                 </option>
-                <option>Konsinyasi Cicilan Tetap</option>
-                <option>Konsinyasi Cicilan Fleksibel</option>
+                <option value={0}>Konsinyasi Cicilan Tetap</option>
+                <option value={1}>Konsinyasi Cicilan Fleksibel</option>
               </select>
             </div>
             <div className="flex mt-4">

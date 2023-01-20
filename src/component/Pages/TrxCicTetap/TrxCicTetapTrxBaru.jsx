@@ -1,6 +1,5 @@
 import { InformasiTransaksi } from "./InformasiTransaksi"
-import { DaftarBarangGadai } from "./DaftarBarangGadai"
-import { DataKontrak } from "./DataKontrak"
+import { DataKontrakGadai } from "./DataKontrak&Gadai"
 
 export function TrxCicTetapTrxBaru(props) {
     const { onClick = null } = props
@@ -70,8 +69,7 @@ export function TrxCicTetapTrxBaru(props) {
                     </div>
                 </form>
                 <InformasiTransaksi />
-                <DaftarBarangGadai />
-                <DataKontrak onClick={onClick} />
+                <DataKontrakGadai onClick={onClick} />
             </div>
         </div>
     )

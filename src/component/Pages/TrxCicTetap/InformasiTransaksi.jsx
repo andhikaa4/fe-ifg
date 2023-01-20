@@ -1,6 +1,3 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-
 export function InformasiTransaksi() {
     const current = new Date()
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`

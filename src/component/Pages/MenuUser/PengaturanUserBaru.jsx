@@ -28,10 +28,11 @@ export function PengaturanUserBaru(props) {
     }, [formErrors])
 
     const current = new Date()
-    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`
+    // const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`
+    const date = current.toISOString().slice(0, 10)
 
     const validate = (values) => {
-        console.log(values.nomorHp)
+        // console.log(typeof(Number(values.nomorHp)))
         let errors = {}
 
         if (!values.userId) {
@@ -41,24 +42,24 @@ export function PengaturanUserBaru(props) {
         }
 
         if (!values.namaUser) {
-            errors.namaUser = 'User name is required'
+            errors.namaUser = 'Nama User is required'
         } else if (values.namaUser.length > 30) {
-            errors.namaUser = 'User name cannot exceed more than 30 characters'
+            errors.namaUser = 'Nama User cannot exceed more than 30 characters'
         }
 
         if (!values.nomorHp) {
-            errors.nomorHp = 'Phone number is required'
-        } else if (values.nomorHp > 12) {
-            errors.nomorHp = 'Phone number cannot exceed more than 12 digits'
-        } else if (values.nomorHp < 12) {
-            errors.nomorHp = 'Minimum character must be 9 digits'
+            errors.nomorHp = 'Nomor HP is required'
+        } else if (values.nomorHp.length > 12) {
+            errors.nomorHp = 'Nomor HP cannot exceed more than 12 digits'
+        } else if (values.nomorHp.length < 12) {
+            errors.nomorHp = 'Minimum length Nomor HP must be 9 digits'
         }
         // else if (typeof (values.nomorHp) !== Number) {
         //     errors.nomorHp = 'Nomor HP must be number'
         // }
 
         if (!values.maksimalLimitTransaksi) {
-            errors.maksimalLimitTransaksi = 'Limit transaction is required'
+            errors.maksimalLimitTransaksi = 'Maksimal Limit Transaksi is required'
         } else if (values.maksimalLimitTransaksi < 500000) {
             errors.maksimalLimitTransaksi = 'minimum limit must be 500.000'
         } else if (values.maksimalLimitTransaksi > 1000000000) {
@@ -66,13 +67,14 @@ export function PengaturanUserBaru(props) {
         }
 
         if (!values.tanggalMasuk) {
-            errors.tanggalMasuk = 'Date is required'
+            errors.tanggalMasuk = 'Tanggal Masuk is required'
         } else if (values.tanggalMasuk > date) {
-            errors.tanggalMasuk = `maximum date is today`
+            errors.tanggalMasuk = `maximum Tanggal Masuk is today`
         }
 
         return errors
     }
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -120,6 +122,7 @@ export function PengaturanUserBaru(props) {
                                         <h2 className="text-left text-sm py-1 w-3/6">Nomor HP</h2>
                                         <input
                                             className="mx-2 text input input-bordered w-full h-8 rounded border-black"
+                                            pattern="[0-9]*"
                                             name="nomorHp"
                                             value={formValues.nomorHp}
                                             onChange={handleChange}

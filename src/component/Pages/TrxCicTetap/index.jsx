@@ -144,8 +144,8 @@ export function TransaksiCicilanTetap() {
                     </div>
                 </div>
             </form>
-            <HasilPencarian />
             {openForm? (<TrxCicTetapTrxBaru onClick={() => setOpenForm(false)}/>) : null}
+            <HasilPencarian />
         </div>
     )
 }

@@ -2,7 +2,6 @@ import React from "react";
 import { dataProduk } from "../../StatikData/DataProduk";
 
 const DataProduk = () => {
-  console.log("produk", dataProduk);
   return (
     <div>
       <div className="overflow-x-auto mb-10">
